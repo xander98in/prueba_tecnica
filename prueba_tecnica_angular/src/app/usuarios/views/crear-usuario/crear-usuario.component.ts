@@ -17,8 +17,8 @@ export class CrearUsuarioComponent implements OnInit {
 
   formularioUsuario: FormGroup = this.fb.group({
     nombre_usuario: [ , [ Validators.required, Validators.minLength(2) ] ],
-    contrasenia: [ , [ Validators.required, Validators.minLength(8) ] ],
-    confirmar_contrasenia: [ , [ Validators.required, Validators.pattern( this.validatorService.contraseniaPattern ) ]],
+    contrasenia: [ , [ Validators.required, Validators.minLength(8), Validators.pattern( this.validatorService.contraseniaPattern ) ] ],
+    confirmar_contrasenia: [ , [ Validators.required ]],
     correo_electronico: [ , [ Validators.required, Validators.pattern( this.validatorService.emailPattern ) ], [ this.emailValidatorService ]],
     perfil: [ '', Validators.required ]
   }, {
@@ -49,7 +49,7 @@ export class CrearUsuarioComponent implements OnInit {
       return 'La contrasenia es obligatoria';
     }
     if(errors?.['pattern']) {
-      return 'La contraseña debe tener minimo ocho caracteres, al menos una mayuscula y una minuscula';
+      return 'La contraseña debe tener minimo ocho caracteres, al menos una mayuscula, una minuscula y un caracter especial';
     }
     return '';
   }
