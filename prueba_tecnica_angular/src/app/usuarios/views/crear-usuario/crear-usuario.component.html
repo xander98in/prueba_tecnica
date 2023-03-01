@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col">
+    <form autocomplete="off"
+      (ngSubmit)="guardarUsuario()"
+      [formGroup]="formularioUsuario">
+
+      <!--Campo del nombre de usuario-->
+      <div class="row p-fluid mt-4">
+        <div class="col-12">
+            <span class="p-input-icon-left p-float-label">
+                <i class="pi pi-user"></i>
+                <input id="float-input"
+                  type="text"
+                  formControlName="nombre_usuario"
+                  pInputText
+                  placeholder="Nombre de usuario"
+                />
+                <label for="float-input">Nombre de Usuario</label>
+            </span>
+            <span class="form-text text-danger"
+                  *ngIf="campoEsValido('nombre_usuario')"
+                >
+                  El campo del nombre de usuario no es valido
+            </span>
+        </div>
+      </div>
+
+      <!--Campo de la contraseña-->
+      <div class="row p-fluid">
+          <div class="col-12 col-sm-6 mt-4">
+              <span class="p-float-label">
+                  <p-password
+                    [toggleMask]="true"
+                    formControlName="contrasenia"
+                    placeholder="Contraseña"
+                  >
+                  </p-password>
+                  <label for="float-input">Contraseña</label>
+              </span>
+              <span class="form-text text-danger"
+                  *ngIf="campoEsValido('contrasenia')"
+                >
+                  {{contraseniaErrorMsg}}
+              </span>
+          </div>
+          <div class="col-12 col-sm-6 mt-4">
+              <span class="p-float-label">
+                  <p-password
+                    [toggleMask]="true"
+                    formControlName="confirmar_contrasenia"
+                    placeholder="Confirmar contraseña"
+                  >
+                  </p-password>
+                  <label for="float-input">Confirmar contraseña</label>
+              </span>
+              <span class="form-text text-danger"
+                  *ngIf="campoEsValido('confirmar_contrasenia')"
+                >
+                  Las contraseñas deben ser iguales
+              </span>
+          </div>
+
+      </div>
+
+      <!--Campo del correo electrónico-->
+      <div class="row p-fluid mt-4">
+          <div class="col-12">
+              <span class="p-input-icon-left p-float-label">
+                  <i class="pi pi-envelope"></i>
+                  <input
+                    id="float-input"
+                    type="email"
+                    formControlName="correo_electronico"
+                    pInputText
+                    placeholder="Correo electrónico"
+                  />
+                  <label for="float-input">Correo electrónico</label>
+              </span>
+              <span class="form-text text-danger"
+                  *ngIf="campoEsValido('correo_electronico')"
+                >
+                  {{ emailErrorMsg }}
+              </span>
+          </div>
+      </div>
+      <!--Perfil del usuario-->
+      <div class="row p-fluid mt-4">
+          <div class="col-12">
+            <span class="p-input-icon-right">
+              <i class="pi pi-chevron-down pt-1"></i>
+              <!-- <label for="float-input" class="form-label titulo_perfil">Perfil del usuario:</label> -->
+              <select class="form-control"
+                pInputText
+                formControlName="perfil"
+              >
+                <option value="">-- Seleccione un perfil del usuario --</option>
+                <option *ngFor="let perfil of nombresPerfiles" value="perfil">{{ perfil | uppercase }}</option>
+              </select>
+            </span>
+            <span class="form-text text-danger"
+                  *ngIf="campoEsValido('perfil')"
+                >
+                  Debe seleccionar un perfil de usuario
+              </span>
+          </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+            <button class="p-button-secondary top-50 start-50 translate-middle boton-crear" pButton
+              type="submit"
+            >
+              CREAR
+            </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

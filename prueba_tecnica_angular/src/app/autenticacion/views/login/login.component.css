@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+.container-login {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.login-usuario {
+  background-color: #d3d3d327;
+  padding: 5px;
+}
+
+.image-title img {
+  margin-top: 50px;
+  width: 140px;
+  height: 140px;
+}
+
+.boton-login:hover {
+  background-color: #2e2e2e;
+}
+
+.boton-login {
+  background-color: black;
+  color: #ffffff;
+  font-weight: 400;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+  justify-content: center;
+  border: 2px solid transparent;
+}
+
+.contenedor-boton-login {
+  margin-bottom: 40px;
+}

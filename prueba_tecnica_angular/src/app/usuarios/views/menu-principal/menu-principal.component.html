@@ -1,0 +1,15 @@
+<div class="mt-3">
+  <p-toolbar>
+    <div class="p-toolbar-group-start">
+        <i class="p-toolbar-separator pi pi-user mr-2" style="vertical-align: middle"></i>
+        <span class="text-format">{{ nombre_usuario }}</span>
+    </div>
+
+    <div class="p-toolbar-group-end">
+        <p-button (click)="cerrarSesion()" icon="pi pi-sign-out" styleClass="p-button-danger"></p-button>
+    </div>
+  </p-toolbar>
+  <p-tabMenu [model]="items"></p-tabMenu>
+  <br>
+  <router-outlet></router-outlet>
+</div>
