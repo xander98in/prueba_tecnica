@@ -37,6 +37,7 @@ public class Usuario implements Serializable {
 	private String correo_electronico;
 	
 	@NotEmpty
+	@Size(min = 8)
 	@Column(nullable = false)
 	private String contrasenia;
 	

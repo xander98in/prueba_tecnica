@@ -1,6 +1,5 @@
 package com.pruebatecnica.apirest.models.DTOs;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -11,20 +10,17 @@ public class UsuarioDTO {
 	
 	@NotEmpty
 	@Size(min = 5, max = 12)
-	@Column(nullable = false, unique = true)
 	private String nombre_usuario;
 	
 	@NotEmpty
 	@Email
-	@Column(nullable = false, unique = true)
 	private String correo_electronico;
 	
 	@NotEmpty
-	@Column(nullable = false)
+	@Size(min = 8)
 	private String contrasenia;
 	
 	@NotEmpty
-	@Column(nullable = false)
 	private String perfil;
 	
 	public Long getId() {
