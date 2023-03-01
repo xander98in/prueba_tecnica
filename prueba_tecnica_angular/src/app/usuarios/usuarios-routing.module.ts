@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CrearUsuarioComponent } from './views/crear-usuario/crear-usuario.component';
 import { ListarUsuariosComponent } from './views/listar-usuarios/listar-usuarios.component';
 import { MenuPrincipalComponent } from './views/menu-principal/menu-principal.component';
+import { ValidarAdministradorGuard } from '../guards/validar-administrador.guard';
 
 const routes: Routes = [
   {
@@ -19,7 +20,9 @@ const routes: Routes = [
       },
       {
         path: 'crear',
-        component: CrearUsuarioComponent
+        component: CrearUsuarioComponent,
+        canActivate: [ ValidarAdministradorGuard ],
+        canLoad: [ ValidarAdministradorGuard ]
       },
       {
         path: '**',

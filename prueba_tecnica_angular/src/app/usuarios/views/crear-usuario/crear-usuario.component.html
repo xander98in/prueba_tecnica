@@ -83,6 +83,7 @@
               </span>
           </div>
       </div>
+
       <!--Perfil del usuario-->
       <div class="row p-fluid mt-4">
           <div class="col-12">
@@ -94,7 +95,7 @@
                 formControlName="perfil"
               >
                 <option value="">-- Seleccione un perfil del usuario --</option>
-                <option *ngFor="let perfil of nombresPerfiles" value="perfil">{{ perfil | uppercase }}</option>
+                <option *ngFor="let perfil of nombresPerfiles" value="{{perfil}}">{{ perfil | uppercase }}</option>
               </select>
             </span>
             <span class="form-text text-danger"
@@ -117,4 +118,3 @@
     </form>
   </div>
 </div>
-
